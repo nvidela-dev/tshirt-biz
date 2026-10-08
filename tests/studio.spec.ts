@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises';
 
 test('individual artwork, placement, PNG dimensions/DPI, print clipping and original handoff', async ({ page }) => {
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: 'Make it your own.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Design. Prepare. Print.' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Sign in', exact: true })).toBeVisible({ timeout: 15000 });
   const sample = await page.evaluate(() => {
     const c = document.createElement('canvas'); c.width = 120; c.height = 120;
@@ -52,7 +52,7 @@ test('unauthenticated design and artwork requests are rejected; mobile workspace
   expect((await request.post('/api/designs', { data: {} })).status()).toBe(401);
   expect((await request.get('/api/assets?path=artwork/someone/secret.png')).status()).toBe(401);
   await page.setViewportSize({ width: 390, height: 844 }); await page.goto('/');
-  await expect(page.getByRole('heading', { name: 'Make it your own.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Design. Prepare. Print.' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Sign in', exact: true })).toBeVisible({ timeout: 15000 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
   await page.screenshot({ path: 'test-results/studio-mobile.png', fullPage: true });

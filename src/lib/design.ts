@@ -13,7 +13,7 @@ export const designSchema = z.object({
 export type Layer = z.infer<typeof layerSchema>;
 export type Design = z.infer<typeof designSchema>;
 export type SavedDesign = { id: string; name: string; updated_at: string };
-export const initialDesign: Design = { name: 'Untitled design', color: 'cream', printWidth: 3600, printHeight: 4800, dpi: 300, layers: [] };
+export const initialDesign: Design = { name: 'Untitled design', color: 'black', printWidth: 3600, printHeight: 4800, dpi: 300, layers: [] };
 // All coordinates are normalized against the PRINT canvas, never the shirt mockup.
 export function placement(layer: Layer, width: number, height: number) {
   return { x: layer.x * width, y: layer.y * height, width: layer.width * width, height: layer.width * width / layer.aspect };

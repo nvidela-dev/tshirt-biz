@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^7.9.13",
+    "@clerk/ui": "^1.39.1",
     "@neondatabase/serverless": "^1.2.0",
     "@vercel/blob": "^2.8.1",
     "jszip": "^3.10.2",
