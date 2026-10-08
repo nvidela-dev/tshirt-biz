@@ -49,5 +49,6 @@ Layer positions are normalized against the print canvas. The preview and export 
 ```sh
 npm run lint
 npm run build
+npx playwright install chromium
 npm run test:e2e
 ```
